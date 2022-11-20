@@ -69,8 +69,8 @@ export default class AuthController {
   /*
    * signOut action
    */
-  public signOut({ response, request, auth }: HttpContextContract) {
-    auth.logout();
+  public async signOut({ response, request, auth }: HttpContextContract) {
+    await auth.logout();
 
     if (request.accepts(["html"])) {
       return response.redirect().toRoute("HomeController.index");
