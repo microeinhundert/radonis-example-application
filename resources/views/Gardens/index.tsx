@@ -6,7 +6,11 @@ import GardensList from "Components/Gardens/GardensList";
 import Header from "Components/Header";
 import { BaseLayout } from "Layouts/Base";
 
-function Index() {
+interface IndexProps {
+  gardens: Garden[];
+}
+
+function Index({ gardens }: IndexProps) {
   const { formatMessage } = useI18n();
 
   const messages = {
@@ -29,7 +33,7 @@ function Index() {
         title={messages.title}
       />
       <HydrationRoot>
-        <GardensList />
+        <GardensList gardens={gardens} />
       </HydrationRoot>
     </BaseLayout>
   );
