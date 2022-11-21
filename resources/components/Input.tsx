@@ -20,7 +20,7 @@ const initiallyHiddenTypes: HTMLInputTypeAttribute[] = ["password"];
 function Input({ type: initialType = "text", className, ...restProps }: InputProps) {
   const { formatMessage } = useI18n();
   const field = useFormField(restProps);
-  const hydrated = useHydrated();
+  const isHydrated = useHydrated();
 
   const isValueInitiallyHidden = initiallyHiddenTypes.includes(initialType);
   const [type, setType] = useState(initialType);
@@ -47,7 +47,7 @@ function Input({ type: initialType = "text", className, ...restProps }: InputPro
             className
           )}
         />
-        {hydrated && field.value && isValueInitiallyHidden ? (
+        {isHydrated && field.value && isValueInitiallyHidden ? (
           <div className="absolute inset-y-0 right-0 flex items-center pr-3">
             <button
               type="button"

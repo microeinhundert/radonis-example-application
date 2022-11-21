@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import type { RouteIdentifier, RouteParams } from "@microeinhundert/radonis";
+import type { RouteIdentifier, RouteParams, RouteQueryParams } from "@microeinhundert/radonis";
 import { hydratable } from "@microeinhundert/radonis";
 import { useUrlBuilder } from "@microeinhundert/radonis";
 
@@ -105,7 +105,7 @@ interface LinkButtonProps extends ButtonBaseProps<"a"> {
   href?: never;
   to: RouteIdentifier;
   params?: RouteParams;
-  queryParams?: RouteParams;
+  queryParams?: RouteQueryParams;
 }
 
 function LinkButton({ to, params, queryParams, ...restProps }: LinkButtonProps) {
