@@ -5,7 +5,7 @@ import { Create, Edit, Index, Show } from "Views/Gardens";
 
 export default class GardensController {
   /*
-   * index action
+   * index action (view)
    */
   public async index({ bouncer, radonis, auth, i18n }: HttpContextContract) {
     await bouncer.with("GardenPolicy").authorize("list");
@@ -18,7 +18,7 @@ export default class GardensController {
   }
 
   /*
-   * create action
+   * create action (view)
    */
   public async create({ bouncer, radonis, i18n }: HttpContextContract) {
     await bouncer.with("GardenPolicy").authorize("create");
@@ -27,7 +27,33 @@ export default class GardensController {
   }
 
   /*
-   * store action
+   * show action (view)
+   */
+  public async show({ bouncer, radonis, params, i18n }: HttpContextContract) {
+    const garden = await Garden.findOrFail(params.id);
+
+    await bouncer.with("GardenPolicy").authorize("view", garden);
+
+    return radonis
+      .withHeadTitle(i18n.formatMessage("gardens.show.title", { name: garden.name }))
+      .render(Show, { garden });
+  }
+
+  /*
+   * edit action (view)
+   */
+  public async edit({ bouncer, radonis, params, i18n }: HttpContextContract) {
+    const garden = await Garden.findOrFail(params.id);
+
+    await bouncer.with("GardenPolicy").authorize("edit", garden);
+
+    return radonis
+      .withHeadTitle(i18n.formatMessage("gardens.edit.title", { name: garden.name }))
+      .render(Edit, { garden });
+  }
+
+  /*
+   * store action (api)
    */
   public async store({ bouncer, request, response, auth }: HttpContextContract) {
     await bouncer.with("GardenPolicy").authorize("create");
@@ -47,33 +73,7 @@ export default class GardensController {
   }
 
   /*
-   * show action
-   */
-  public async show({ bouncer, radonis, params, i18n }: HttpContextContract) {
-    const garden = await Garden.findOrFail(params.id);
-
-    await bouncer.with("GardenPolicy").authorize("view", garden);
-
-    return radonis
-      .withHeadTitle(i18n.formatMessage("gardens.show.title", { name: garden.name }))
-      .render(Show, { garden });
-  }
-
-  /*
-   * edit action
-   */
-  public async edit({ bouncer, radonis, params, i18n }: HttpContextContract) {
-    const garden = await Garden.findOrFail(params.id);
-
-    await bouncer.with("GardenPolicy").authorize("edit", garden);
-
-    return radonis
-      .withHeadTitle(i18n.formatMessage("gardens.edit.title", { name: garden.name }))
-      .render(Edit, { garden });
-  }
-
-  /*
-   * update action
+   * update action (api)
    */
   public async update({ bouncer, request, params, response }: HttpContextContract) {
     const garden = await Garden.findOrFail(params.id);
@@ -92,7 +92,7 @@ export default class GardensController {
   }
 
   /*
-   * destroy action
+   * destroy action (api)
    */
   public async destroy({ bouncer, request, params, response }: HttpContextContract) {
     const garden = await Garden.findOrFail(params.id);

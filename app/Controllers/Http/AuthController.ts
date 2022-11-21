@@ -6,14 +6,21 @@ import { SignIn, SignUp } from "Views/Auth";
 
 export default class AuthController {
   /*
-   * signUpShow action
+   * signUpShow action (view)
    */
   public signUpShow({ radonis, i18n }: HttpContextContract) {
     return radonis.withHeadTitle(i18n.formatMessage("auth.signUp.title")).render(SignUp);
   }
 
   /*
-   * signUp action
+   * signInShow action (view)
+   */
+  public signInShow({ radonis, i18n }: HttpContextContract) {
+    return radonis.withHeadTitle(i18n.formatMessage("auth.signIn.title")).render(SignIn);
+  }
+
+  /*
+   * signUp action (api)
    */
   public async signUp({ response, request, auth }: HttpContextContract) {
     const data = await request.validate(SignUpValidator);
@@ -30,14 +37,7 @@ export default class AuthController {
   }
 
   /*
-   * signInShow action
-   */
-  public signInShow({ radonis, i18n }: HttpContextContract) {
-    return radonis.withHeadTitle(i18n.formatMessage("auth.signIn.title")).render(SignIn);
-  }
-
-  /*
-   * signIn action
+   * signIn action (api)
    */
   public async signIn({ response, request, auth, session, i18n }: HttpContextContract) {
     const { email, password, rememberMe } = await request.validate(SignInValidator);
@@ -51,14 +51,14 @@ export default class AuthController {
 
       return response.json(true);
     } catch {
-      if (request.accepts(["html"])) {
-        session.flash({
-          email,
-          errors: {
-            invalidEmailOrPassword: i18n.formatMessage("validator.invalidEmailOrPassword"),
-          },
-        });
+      session.flash({
+        email,
+        errors: {
+          invalidEmailOrPassword: i18n.formatMessage("validator.invalidEmailOrPassword"),
+        },
+      });
 
+      if (request.accepts(["html"])) {
         return response.redirect().back();
       }
 
@@ -67,7 +67,7 @@ export default class AuthController {
   }
 
   /*
-   * signOut action
+   * signOut action (api)
    */
   public async signOut({ response, request, auth }: HttpContextContract) {
     await auth.logout();
