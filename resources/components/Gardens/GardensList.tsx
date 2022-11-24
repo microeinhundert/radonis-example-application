@@ -1,8 +1,10 @@
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { Form, hydratable, useHydrated, useI18n } from "@microeinhundert/radonis";
+import { useQueryClient } from "@tanstack/react-query";
 import type Garden from "App/Models/Garden";
 import { useState } from "react";
+import { useGardens } from "resources/hooks/queries/useGardens";
 
 import { useAuthenticatedUser } from "../../hooks/useAuthenticatedUser";
 import Button, { ButtonColor } from "../Button";
@@ -19,13 +21,12 @@ import Modal from "../Modal";
 interface GardensListItemProps {
   canEdit: boolean;
   garden: Garden;
-  onDelete: (garden: Garden) => void;
-  onRollback: (garden: Garden) => void;
 }
 
-function GardensListItem({ canEdit, garden, onDelete, onRollback }: GardensListItemProps) {
+function GardensListItem({ canEdit, garden }: GardensListItemProps) {
   const { formatMessage } = useI18n();
   const hydrated = useHydrated();
+  const queryClient = useQueryClient();
   const [deleteConfirmationModalOpen, setDeleteConfirmationModalOpen] = useState(false);
 
   const messages = {
@@ -49,13 +50,14 @@ function GardensListItem({ canEdit, garden, onDelete, onRollback }: GardensListI
     <Form
       action="GardensController.destroy"
       hooks={{
-        onMutate: () => {
-          setDeleteConfirmationModalOpen(false);
-          onDelete(garden);
-          return () => onRollback(garden);
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ["GardensController.index"] });
         },
-        onFailure: ({ rollback }) => {
-          rollback?.();
+        onFailure: ({ error }) => {
+          console.error(error);
+        },
+        onSettled: () => {
+          setDeleteConfirmationModalOpen(false);
         },
       }}
       id={`delete-garden-${garden.id}`}
@@ -132,14 +134,10 @@ function GardensListItem({ canEdit, garden, onDelete, onRollback }: GardensListI
 /*
  * Gardens List
  */
-interface GardensListProps {
-  gardens: Garden[];
-}
-
-function GardensList({ gardens }: GardensListProps) {
+function GardensList() {
+  const { gardens } = useGardens();
   const { formatMessage } = useI18n();
   const user = useAuthenticatedUser();
-  const [gardensListItems, setGardensListItems] = useState<Garden[]>(gardens);
 
   const messages = {
     noData: {
@@ -150,20 +148,14 @@ function GardensList({ gardens }: GardensListProps) {
 
   return (
     <>
-      {gardensListItems.length ? (
+      {gardens.length ? (
         <>
           <Grid>
-            {gardensListItems.map((garden) => (
+            {gardens.map((garden) => (
               <GardensListItem
                 key={garden.id}
                 canEdit={user?.id === garden.userId}
                 garden={garden}
-                onDelete={(garden) => {
-                  setGardensListItems((gardens) => gardens.filter(({ id }) => id !== garden.id));
-                }}
-                onRollback={(garden) => {
-                  setGardensListItems((gardens) => [garden, ...gardens]);
-                }}
               />
             ))}
           </Grid>
