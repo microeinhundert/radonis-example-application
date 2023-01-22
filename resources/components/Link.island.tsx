@@ -1,4 +1,4 @@
-import { hydratable } from "@microeinhundert/radonis";
+import { island } from "@microeinhundert/radonis";
 import type { ReactNode } from "react";
 
 import { clsx } from "../utils/string";
@@ -21,4 +21,4 @@ function Link({ children, className, ...restProps }: LinkProps) {
   );
 }
 
-export default hydratable("Link", Link);
+export default island("Link", Link);

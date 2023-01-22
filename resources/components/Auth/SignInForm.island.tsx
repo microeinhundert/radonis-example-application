@@ -1,17 +1,11 @@
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import {
-  Form,
-  hydratable,
-  useFlashMessages,
-  useI18n,
-  useUrlBuilder,
-} from "@microeinhundert/radonis";
+import { Form, island, useFlashMessages, useI18n, useUrlBuilder } from "@microeinhundert/radonis";
 
-import Button from "../Button";
-import Checkbox from "../Checkbox";
-import CsrfField from "../CsrfField";
-import Input from "../Input";
-import Link from "../Link";
+import Button from "../Button.island";
+import Checkbox from "../Checkbox.island";
+import CsrfField from "../CsrfField.island";
+import Input from "../Input.island";
+import Link from "../Link.island";
 
 /*
  * Sign In Form
@@ -38,7 +32,7 @@ function SignInForm() {
   };
 
   return (
-    <Form action="AuthController.signIn" method="post" noValidate>
+    <Form action="signIn" method="post" noValidate>
       <div className="flex flex-col gap-5">
         <CsrfField />
         <Input
@@ -66,11 +60,11 @@ function SignInForm() {
           {messages.actions.submit}
         </Button>
         <div className="text-center text-sm">
-          <Link href={make("AuthController.signUp")}>{messages.signUpLinkLabel}</Link>
+          <Link href={make("signUp")}>{messages.signUpLinkLabel}</Link>
         </div>
       </div>
     </Form>
   );
 }
 
-export default hydratable("SignInForm", SignInForm);
+export default island("SignInForm", SignInForm);

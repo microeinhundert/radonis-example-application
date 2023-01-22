@@ -1,6 +1,6 @@
 import { useI18n } from "@microeinhundert/radonis";
-import Fallback from "Components/Fallback";
-import ErrorIllustration from "Components/Illustrations/ErrorIllustration";
+import Fallback from "Components/Fallback.island";
+import ErrorIllustration from "Components/Illustrations/ErrorIllustration.island";
 
 interface InternalServerErrorProps {
   error: unknown;

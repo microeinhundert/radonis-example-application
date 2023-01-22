@@ -1,4 +1,4 @@
-import { hydratable } from "@microeinhundert/radonis";
+import { island } from "@microeinhundert/radonis";
 import type { ReactNode } from "react";
 import { forwardRef } from "react";
 
@@ -41,4 +41,4 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(function (
   );
 });
 
-export default hydratable("Grid", Grid);
+export default island("Grid", Grid);

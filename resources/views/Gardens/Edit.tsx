@@ -1,7 +1,7 @@
 import { HydrationRoot, useI18n } from "@microeinhundert/radonis";
 import type Garden from "App/Models/Garden";
-import GardenForm from "Components/Gardens/GardenForm";
-import Header from "Components/Header";
+import GardenForm from "Components/Gardens/GardenForm.island";
+import Header from "Components/Header.island";
 import { BaseLayout } from "Layouts/Base";
 
 interface EditProps {

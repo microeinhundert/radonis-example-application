@@ -105,40 +105,6 @@ const radonisConfig: RadonisConfig = {
   client: {
     /*
     |--------------------------------------------------------------------------
-    | Entry file
-    |--------------------------------------------------------------------------
-    |
-    | The entry file is where the Radonis client is initialized.
-    | You can also use this file to include your own scripts
-    | that are not bound to a specific component "Island".
-    |
-    */
-    entryFile: Application.resourcesPath("entry.client.ts"),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Always include entry file
-    |--------------------------------------------------------------------------
-    |
-    | Always include the entry file, even if no components
-    | which need hydration are on the page.
-    |
-    */
-    alwaysIncludeEntryFile: false,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Components dir
-    |--------------------------------------------------------------------------
-    |
-    | The directory where all your React components are located in.
-    | Components in this directory will be built to also run client-side.
-    |
-    */
-    componentsDir: Application.resourcesPath("components"),
-
-    /*
-    |--------------------------------------------------------------------------
     | Limit manifest
     |--------------------------------------------------------------------------
     |

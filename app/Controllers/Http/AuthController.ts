@@ -30,7 +30,7 @@ export default class AuthController {
     await auth.login(user);
 
     if (request.accepts(["html"])) {
-      return response.redirect().toRoute("DashboardController.index");
+      return response.redirect().toRoute("dashboard");
     }
 
     return response.json(true);
@@ -46,7 +46,7 @@ export default class AuthController {
       await auth.attempt(email, password, rememberMe);
 
       if (request.accepts(["html"])) {
-        return response.redirect().toRoute("DashboardController.index");
+        return response.redirect().toRoute("dashboard");
       }
 
       return response.json(true);
@@ -73,7 +73,7 @@ export default class AuthController {
     await auth.logout();
 
     if (request.accepts(["html"])) {
-      return response.redirect().toRoute("HomeController.index");
+      return response.redirect().toRoute("home");
     }
 
     return response.json(true);

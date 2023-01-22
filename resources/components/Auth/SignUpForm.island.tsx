@@ -1,9 +1,9 @@
-import { Form, hydratable, useI18n, useUrlBuilder } from "@microeinhundert/radonis";
+import { Form, island, useI18n, useUrlBuilder } from "@microeinhundert/radonis";
 
-import Button from "../Button";
-import CsrfField from "../CsrfField";
-import Input from "../Input";
-import Link from "../Link";
+import Button from "../Button.island";
+import CsrfField from "../CsrfField.island";
+import Input from "../Input.island";
+import Link from "../Link.island";
 
 /*
  * Sign Up Form
@@ -35,7 +35,7 @@ function SignUpForm() {
   };
 
   return (
-    <Form action="AuthController.signUp" method="post" noValidate>
+    <Form action="signUp" method="post" noValidate>
       <div className="flex flex-col gap-5">
         <CsrfField />
         <Input
@@ -80,11 +80,11 @@ function SignUpForm() {
           {messages.actions.submit}
         </Button>
         <div className="text-center text-sm">
-          <Link href={make("AuthController.signIn")}>{messages.signInLinkLabel}</Link>
+          <Link href={make("signIn")}>{messages.signInLinkLabel}</Link>
         </div>
       </div>
     </Form>
   );
 }
 
-export default hydratable("SignUpForm", SignUpForm);
+export default island("SignUpForm", SignUpForm);

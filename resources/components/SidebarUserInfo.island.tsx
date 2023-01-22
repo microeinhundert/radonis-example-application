@@ -1,12 +1,12 @@
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
-import { hydratable, useI18n } from "@microeinhundert/radonis";
+import { island, useI18n } from "@microeinhundert/radonis";
 import { useState } from "react";
 
 import { useAuthenticatedUser } from "../hooks/useAuthenticatedUser";
 import { getFirstChar } from "../utils/string";
-import Button, { ButtonColor } from "./Button";
-import IconCircle, { IconCircleColor } from "./IconCircle";
-import Modal from "./Modal";
+import Button, { ButtonColor } from "./Button.island";
+import IconCircle, { IconCircleColor } from "./IconCircle.island";
+import Modal from "./Modal.island";
 
 /*
  * Sidebar User Info
@@ -62,7 +62,7 @@ function SidebarUserInfo() {
                 <Button color={ButtonColor.White} round onClick={() => setSignOutModalOpen(false)}>
                   {messages.modals.signOut.actions.cancel}
                 </Button>
-                <Button.Link color={ButtonColor.Red} to="AuthController.signOut" round>
+                <Button.Link color={ButtonColor.Red} to="signOut" round>
                   {messages.modals.signOut.actions.confirm}
                 </Button.Link>
               </>
@@ -81,14 +81,10 @@ function SidebarUserInfo() {
         </>
       ) : (
         <>
-          <Button.Link className="flex-1" color={ButtonColor.White} to="AuthController.signInShow">
+          <Button.Link className="flex-1" color={ButtonColor.White} to="signInShow">
             {messages.signIn}
           </Button.Link>
-          <Button.Link
-            className="flex-1"
-            color={ButtonColor.Emerald}
-            to="AuthController.signUpShow"
-          >
+          <Button.Link className="flex-1" color={ButtonColor.Emerald} to="signUpShow">
             {messages.signUp}
           </Button.Link>
         </>
@@ -97,4 +93,4 @@ function SidebarUserInfo() {
   );
 }
 
-export default hydratable("SidebarUserInfo", SidebarUserInfo);
+export default island("SidebarUserInfo", SidebarUserInfo);

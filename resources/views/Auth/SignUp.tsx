@@ -1,5 +1,5 @@
 import { HydrationRoot, useI18n } from "@microeinhundert/radonis";
-import SignUpForm from "Components/Auth/SignUpForm";
+import SignUpForm from "Components/Auth/SignUpForm.island";
 import { AuthLayout } from "Layouts/Auth";
 
 function SignUp() {

@@ -1,9 +1,9 @@
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { HydrationRoot, useI18n } from "@microeinhundert/radonis";
 import type Garden from "App/Models/Garden";
-import Button, { ButtonColor } from "Components/Button";
-import GardensList from "Components/Gardens/GardensList";
-import Header from "Components/Header";
+import Button, { ButtonColor } from "Components/Button.island";
+import GardensList from "Components/Gardens/GardensList.island";
+import Header from "Components/Header.island";
 import { BaseLayout } from "Layouts/Base";
 
 interface IndexProps {
@@ -25,7 +25,7 @@ function Index({ gardens }: IndexProps) {
       <Header
         actions={
           <>
-            <Button.Link color={ButtonColor.Emerald} icon={PlusIcon} to="GardensController.create">
+            <Button.Link color={ButtonColor.Emerald} icon={PlusIcon} to="gardens.create">
               {messages.actions.create}
             </Button.Link>
           </>

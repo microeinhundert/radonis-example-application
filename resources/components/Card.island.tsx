@@ -1,4 +1,4 @@
-import { hydratable } from "@microeinhundert/radonis";
+import { island } from "@microeinhundert/radonis";
 import type { ReactNode } from "react";
 
 import { clsx } from "../utils/string";
@@ -62,4 +62,4 @@ function Card({ className, children }: CardProps) {
 Card.Head = CardHead;
 Card.Body = CardBody;
 
-export default hydratable("Card", Card);
+export default island("Card", Card);

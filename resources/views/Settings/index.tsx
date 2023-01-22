@@ -1,5 +1,5 @@
 import { useI18n } from "@microeinhundert/radonis";
-import Header from "Components/Header";
+import Header from "Components/Header.island";
 import { BaseLayout } from "Layouts/Base";
 
 function Index() {

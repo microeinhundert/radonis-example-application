@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { hydratable, useI18n } from "@microeinhundert/radonis";
+import { island, useI18n } from "@microeinhundert/radonis";
 import type { ReactNode } from "react";
 import { Fragment } from "react";
 
@@ -164,4 +164,4 @@ Modal.Body = ModalBody;
 Modal.Title = ModalTitle;
 Modal.Description = ModalDescription;
 
-export default hydratable("Modal", Modal);
+export default island("Modal", Modal);

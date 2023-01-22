@@ -20,16 +20,18 @@
 
 import Route from "@ioc:Adonis/Core/Route";
 
-Route.get("/", "HomeController.index");
+Route.get("/", "HomeController.index").as("home");
 
 Route.group(() => {
-  Route.get("/dashboard", "DashboardController.index");
-  Route.get("/settings", "SettingsController.index");
-  Route.resource("gardens", "GardensController");
+  Route.get("/dashboard", "DashboardController.index").as("dashboard");
+  Route.get("/settings", "SettingsController.index").as("settings");
+  Route.resource("gardens", "GardensController").as("gardens");
 }).middleware("auth");
 
-Route.get("/signUp", "AuthController.signUpShow");
-Route.post("/signUp", "AuthController.signUp");
-Route.get("/signIn", "AuthController.signInShow");
-Route.post("/signIn", "AuthController.signIn");
-Route.get("/signOut", "AuthController.signOut");
+Route.get("/signUp", "AuthController.signUpShow").as("signUpShow");
+Route.post("/signUp", "AuthController.signUp").as("signUp");
+
+Route.get("/signIn", "AuthController.signInShow").as("signInShow");
+Route.post("/signIn", "AuthController.signIn").as("signIn");
+
+Route.get("/signOut", "AuthController.signOut").as("signOut");

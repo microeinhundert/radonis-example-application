@@ -11,19 +11,19 @@ export function useNavigation() {
     primary: navigationBuilder.make([
       {
         identifier: "home",
-        routeIdentifier: "HomeController.index",
+        routeIdentifier: "home",
         icon: HomeIcon,
         canAccess: () => !user,
       },
       {
         identifier: "dashboard",
-        routeIdentifier: "DashboardController.index",
+        routeIdentifier: "dashboard",
         icon: HomeIcon,
         canAccess: () => !!user,
       },
       {
         identifier: "gardens",
-        routeIdentifier: "GardensController.index",
+        routeIdentifier: "gardens.index",
         icon: CubeIcon,
         canAccess: () => !!user,
       },
@@ -31,7 +31,7 @@ export function useNavigation() {
     secondary: navigationBuilder.make([
       {
         identifier: "settings",
-        routeIdentifier: "SettingsController.index",
+        routeIdentifier: "settings",
         icon: CogIcon,
         canAccess: () => !!user,
       },

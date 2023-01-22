@@ -1,4 +1,4 @@
-import { hydratable } from "@microeinhundert/radonis";
+import { island } from "@microeinhundert/radonis";
 
 import { clsx } from "../utils/string";
 
@@ -43,4 +43,4 @@ function IconCircle({
   );
 }
 
-export default hydratable("IconCircle", IconCircle);
+export default island("IconCircle", IconCircle);

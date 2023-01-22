@@ -1,17 +1,17 @@
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
-import { Form, hydratable, useHydrated, useI18n } from "@microeinhundert/radonis";
+import { Form, island, useHydrated, useI18n } from "@microeinhundert/radonis";
 import type Garden from "App/Models/Garden";
 import { useState } from "react";
 
 import { useAuthenticatedUser } from "../../hooks/useAuthenticatedUser";
-import Button, { ButtonColor } from "../Button";
-import Card from "../Card";
-import Fallback from "../Fallback";
-import Grid from "../Grid";
-import IconCircle, { IconCircleColor } from "../IconCircle";
-import NoDataIllustration from "../Illustrations/NoDataIllustration";
-import Modal from "../Modal";
+import Button, { ButtonColor } from "../Button.island";
+import Card from "../Card.island";
+import Fallback from "../Fallback.island";
+import Grid from "../Grid.island";
+import IconCircle, { IconCircleColor } from "../IconCircle.island";
+import NoDataIllustration from "../Illustrations/NoDataIllustration.island";
+import Modal from "../Modal.island";
 
 /*
  * Gardens List Item
@@ -47,7 +47,7 @@ function GardensListItem({ canEdit, garden, onDelete, onRollback }: GardensListI
 
   return (
     <Form
-      action="GardensController.destroy"
+      action="gardens.destroy"
       hooks={{
         onMutate: () => {
           setDeleteConfirmationModalOpen(false);
@@ -73,7 +73,7 @@ function GardensListItem({ canEdit, garden, onDelete, onRollback }: GardensListI
                   icon={PencilIcon}
                   params={{ id: garden.id }}
                   title={messages.actions.edit}
-                  to="GardensController.edit"
+                  to="gardens.edit"
                   round
                   small
                 />
@@ -175,4 +175,4 @@ function GardensList({ gardens }: GardensListProps) {
   );
 }
 
-export default hydratable("GardensList", GardensList);
+export default island("GardensList", GardensList);

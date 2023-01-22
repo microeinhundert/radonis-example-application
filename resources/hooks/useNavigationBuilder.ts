@@ -1,9 +1,8 @@
-import type { RouteIdentifier } from "@microeinhundert/radonis";
 import { useI18n, useRoute, useUrlBuilder } from "@microeinhundert/radonis";
 
 interface NavigationBuilderItem {
   identifier: string;
-  routeIdentifier: RouteIdentifier;
+  routeIdentifier: string;
   icon?: IconComponent;
   canAccess?: () => boolean;
 }

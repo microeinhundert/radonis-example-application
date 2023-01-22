@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-import Search from "../components/Search";
-import Sidebar from "../components/Sidebar";
+import Search from "../components/Search.island";
+import Sidebar from "../components/Sidebar.island";
 
 interface BaseLayoutProps {
   children?: ReactNode;

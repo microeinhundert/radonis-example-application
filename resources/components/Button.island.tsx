@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import type { RouteIdentifier, RouteParams, RouteQueryParams } from "@microeinhundert/radonis";
-import { hydratable } from "@microeinhundert/radonis";
+import type { RouteParams, RouteQueryParams } from "@microeinhundert/radonis";
+import { island } from "@microeinhundert/radonis";
 import { useUrlBuilder } from "@microeinhundert/radonis";
 
 import { clsx } from "../utils/string";
@@ -103,7 +103,7 @@ function AnchorButton(props: AnchorButtonProps) {
  */
 interface LinkButtonProps extends ButtonBaseProps<"a"> {
   href?: never;
-  to: RouteIdentifier;
+  to: string;
   params?: RouteParams;
   queryParams?: RouteQueryParams;
 }
@@ -142,4 +142,4 @@ function Button(props: ButtonProps) {
 Button.Anchor = AnchorButton;
 Button.Link = LinkButton;
 
-export default hydratable("Button", Button);
+export default island("Button", Button);

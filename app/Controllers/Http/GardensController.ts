@@ -66,7 +66,7 @@ export default class GardensController {
     });
 
     if (request.accepts(["html"])) {
-      return response.redirect().toRoute("GardensController.index");
+      return response.redirect().toRoute("gardens.index");
     }
 
     return response.json(garden);
@@ -85,7 +85,7 @@ export default class GardensController {
     const updatedGarden = await garden.merge(data).save();
 
     if (request.accepts(["html"])) {
-      return response.redirect().toRoute("GardensController.index");
+      return response.redirect().toRoute("gardens.index");
     }
 
     return response.json(updatedGarden);

@@ -1,9 +1,9 @@
-import { Form, hydratable, useI18n } from "@microeinhundert/radonis";
+import { Form, island, useI18n } from "@microeinhundert/radonis";
 import type Garden from "App/Models/Garden";
 
-import Button from "../Button";
-import CsrfField from "../CsrfField";
-import Input from "../Input";
+import Button from "../Button.island";
+import CsrfField from "../CsrfField.island";
+import Input from "../Input.island";
 
 /*
  * Garden Form
@@ -33,7 +33,7 @@ function GardenForm({ garden }: GardenFormProps) {
 
   return (
     <Form
-      action={garden ? "GardensController.update" : "GardensController.store"}
+      action={garden ? "gardens.update" : "gardens.store"}
       method={garden ? "put" : "post"}
       params={garden ? { id: garden.id } : undefined}
       noValidate
@@ -69,4 +69,4 @@ function GardenForm({ garden }: GardenFormProps) {
   );
 }
 
-export default hydratable("GardenForm", GardenForm);
+export default island("GardenForm", GardenForm);
