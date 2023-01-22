@@ -4,7 +4,7 @@ import { useAuthenticatedUser } from "../hooks/useAuthenticatedUser";
 import { useNavigation } from "../hooks/useNavigation";
 import type { NavigationItem } from "../hooks/useNavigationBuilder";
 import { clsx } from "../utils/string";
-import Logo from "./Logo.island";
+import Logo from "./Logo";
 import SidebarUserInfo from "./SidebarUserInfo.island";
 
 /*

@@ -1,9 +1,9 @@
 import { Form, island, useI18n, useUrlBuilder } from "@microeinhundert/radonis";
 
 import Button from "../Button.island";
-import CsrfField from "../CsrfField.island";
+import CsrfField from "../CsrfField";
 import Input from "../Input.island";
-import Link from "../Link.island";
+import Link from "../Link";
 
 /*
  * Sign Up Form

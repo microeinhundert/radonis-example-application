@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import Logo from "../components/Logo.island";
+import Logo from "../components/Logo";
 
 interface AuthLayoutProps {
   children?: ReactNode;

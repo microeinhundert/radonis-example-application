@@ -1,4 +1,3 @@
-import { island } from "@microeinhundert/radonis";
 import type { ReactNode } from "react";
 
 import { clsx } from "../utils/string";
@@ -21,4 +20,4 @@ function Link({ children, className, ...restProps }: LinkProps) {
   );
 }
 
-export default island("Link", Link);
+export default Link;

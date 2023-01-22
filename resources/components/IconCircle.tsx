@@ -1,5 +1,3 @@
-import { island } from "@microeinhundert/radonis";
-
 import { clsx } from "../utils/string";
 
 /*
@@ -43,4 +41,4 @@ function IconCircle({
   );
 }
 
-export default island("IconCircle", IconCircle);
+export default IconCircle;

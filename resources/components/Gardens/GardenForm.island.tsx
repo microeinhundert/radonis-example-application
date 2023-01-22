@@ -2,7 +2,7 @@ import { Form, island, useI18n } from "@microeinhundert/radonis";
 import type Garden from "App/Models/Garden";
 
 import Button from "../Button.island";
-import CsrfField from "../CsrfField.island";
+import CsrfField from "../CsrfField";
 import Input from "../Input.island";
 
 /*

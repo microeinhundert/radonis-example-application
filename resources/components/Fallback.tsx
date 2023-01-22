@@ -1,5 +1,3 @@
-import { island } from "@microeinhundert/radonis";
-
 /*
  * Fallback
  */
@@ -21,4 +19,4 @@ function Fallback({ icon: Icon, headline, text }: FallbackProps) {
   );
 }
 
-export default island("Fallback", Fallback);
+export default Fallback;

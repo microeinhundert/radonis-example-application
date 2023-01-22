@@ -1,4 +1,3 @@
-import { island } from "@microeinhundert/radonis";
 import type { ReactNode } from "react";
 import { forwardRef } from "react";
 
@@ -41,4 +40,4 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(function (
   );
 });
 
-export default island("Grid", Grid);
+export default Grid;

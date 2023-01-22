@@ -3,9 +3,9 @@ import { Form, island, useFlashMessages, useI18n, useUrlBuilder } from "@microei
 
 import Button from "../Button.island";
 import Checkbox from "../Checkbox.island";
-import CsrfField from "../CsrfField.island";
+import CsrfField from "../CsrfField";
 import Input from "../Input.island";
-import Link from "../Link.island";
+import Link from "../Link";
 
 /*
  * Sign In Form

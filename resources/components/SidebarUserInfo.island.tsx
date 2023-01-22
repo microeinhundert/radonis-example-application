@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useAuthenticatedUser } from "../hooks/useAuthenticatedUser";
 import { getFirstChar } from "../utils/string";
 import Button, { ButtonColor } from "./Button.island";
-import IconCircle, { IconCircleColor } from "./IconCircle.island";
+import IconCircle, { IconCircleColor } from "./IconCircle";
 import Modal from "./Modal.island";
 
 /*

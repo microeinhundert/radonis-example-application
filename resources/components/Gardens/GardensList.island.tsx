@@ -7,10 +7,10 @@ import { useState } from "react";
 import { useAuthenticatedUser } from "../../hooks/useAuthenticatedUser";
 import Button, { ButtonColor } from "../Button.island";
 import Card from "../Card.island";
-import Fallback from "../Fallback.island";
-import Grid from "../Grid.island";
-import IconCircle, { IconCircleColor } from "../IconCircle.island";
-import NoDataIllustration from "../Illustrations/NoDataIllustration.island";
+import Fallback from "../Fallback";
+import Grid from "../Grid";
+import IconCircle, { IconCircleColor } from "../IconCircle";
+import NoDataIllustration from "../Illustrations/NoDataIllustration";
 import Modal from "../Modal.island";
 
 /*

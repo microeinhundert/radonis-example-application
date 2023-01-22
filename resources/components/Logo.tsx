@@ -1,5 +1,3 @@
-import { island } from "@microeinhundert/radonis";
-
 /*
  * Logo
  */
@@ -22,4 +20,4 @@ function Logo(props: LogoProps) {
   );
 }
 
-export default island("Logo", Logo);
+export default Logo;
