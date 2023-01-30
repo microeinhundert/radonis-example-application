@@ -12,22 +12,22 @@ import Modal from "./Modal.island";
  * Sidebar User Info
  */
 function SidebarUserInfo() {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
   const user = useAuthenticatedUser();
 
   const [signOutModalOpen, setSignOutModalOpen] = useState(false);
 
   const messages = {
-    signOut: formatMessage("shared.sidebar.signOut"),
-    signIn: formatMessage("shared.sidebar.signIn"),
-    signUp: formatMessage("shared.sidebar.signUp"),
+    signOut: formatMessage$("shared.sidebar.signOut"),
+    signIn: formatMessage$("shared.sidebar.signIn"),
+    signUp: formatMessage$("shared.sidebar.signUp"),
     modals: {
       signOut: {
-        title: formatMessage("shared.sidebar.modals.signOut.title"),
-        description: formatMessage("shared.sidebar.modals.signOut.description"),
+        title: formatMessage$("shared.sidebar.modals.signOut.title"),
+        description: formatMessage$("shared.sidebar.modals.signOut.description"),
         actions: {
-          cancel: formatMessage("shared.sidebar.modals.signOut.actions.cancel"),
-          confirm: formatMessage("shared.sidebar.modals.signOut.actions.confirm"),
+          cancel: formatMessage$("shared.sidebar.modals.signOut.actions.cancel"),
+          confirm: formatMessage$("shared.sidebar.modals.signOut.actions.confirm"),
         },
       },
     },
@@ -62,7 +62,7 @@ function SidebarUserInfo() {
                 <Button color={ButtonColor.White} round onClick={() => setSignOutModalOpen(false)}>
                   {messages.modals.signOut.actions.cancel}
                 </Button>
-                <Button.Link color={ButtonColor.Red} to="signOut" round>
+                <Button.Link color={ButtonColor.Red} to$="signOut" round>
                   {messages.modals.signOut.actions.confirm}
                 </Button.Link>
               </>
@@ -81,10 +81,10 @@ function SidebarUserInfo() {
         </>
       ) : (
         <>
-          <Button.Link className="flex-1" color={ButtonColor.White} to="signInShow">
+          <Button.Link className="flex-1" color={ButtonColor.White} to$="signInShow">
             {messages.signIn}
           </Button.Link>
-          <Button.Link className="flex-1" color={ButtonColor.Emerald} to="signUpShow">
+          <Button.Link className="flex-1" color={ButtonColor.Emerald} to$="signUpShow">
             {messages.signUp}
           </Button.Link>
         </>

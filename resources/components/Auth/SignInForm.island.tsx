@@ -11,28 +11,28 @@ import Link from "../Link";
  * Sign In Form
  */
 function SignInForm() {
-  const { formatMessage } = useI18n();
-  const { make } = useUrlBuilder();
-  const { hasError, getError } = useFlashMessages();
+  const { formatMessage$ } = useI18n();
+  const { make$ } = useUrlBuilder();
+  const { has$, get$ } = useFlashMessages();
 
   const messages = {
     email: {
-      label: formatMessage("auth.signIn.form.email.label"),
+      label: formatMessage$("auth.signIn.form.email.label"),
     },
     password: {
-      label: formatMessage("auth.signIn.form.password.label"),
+      label: formatMessage$("auth.signIn.form.password.label"),
     },
     rememberMe: {
-      label: formatMessage("auth.signIn.form.rememberMe.label"),
+      label: formatMessage$("auth.signIn.form.rememberMe.label"),
     },
     actions: {
-      submit: formatMessage("auth.signIn.form.actions.submit"),
+      submit: formatMessage$("auth.signIn.form.actions.submit"),
     },
-    signUpLinkLabel: formatMessage("auth.signIn.form.signUpLinkLabel"),
+    signUpLinkLabel: formatMessage$("auth.signIn.form.signUpLinkLabel"),
   };
 
   return (
-    <Form action="signIn" method="post" noValidate>
+    <Form action$="signIn" method="post" noValidate>
       <div className="flex flex-col gap-5">
         <CsrfField />
         <Input
@@ -49,10 +49,10 @@ function SignInForm() {
           type="password"
           required
         />
-        {hasError("invalidEmailOrPassword") && (
+        {has$("errors.invalidEmailOrPassword") && (
           <div className="my-4 flex flex-col items-center gap-4 rounded-lg bg-red-50 p-4 text-center text-sm font-medium text-red-600 sm:p-6">
             <ExclamationCircleIcon className="h-6 w-6" />
-            <span className="block max-w-[30ch]">{getError("invalidEmailOrPassword")}</span>
+            <span className="block max-w-[30ch]">{get$("errors.invalidEmailOrPassword")}</span>
           </div>
         )}
         <Checkbox label={messages.rememberMe.label} name="rememberMe" />
@@ -60,7 +60,7 @@ function SignInForm() {
           {messages.actions.submit}
         </Button>
         <div className="text-center text-sm">
-          <Link href={make("signUp")}>{messages.signUpLinkLabel}</Link>
+          <Link href={make$("signUp")}>{messages.signUpLinkLabel}</Link>
         </div>
       </div>
     </Form>

@@ -8,12 +8,12 @@ import { clsx } from "../utils/string";
  * Search
  */
 function Search() {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
   const id = useId();
 
   const messages = {
-    label: formatMessage("shared.search.label"),
-    placeholder: formatMessage("shared.search.placeholder"),
+    label: formatMessage$("shared.search.label"),
+    placeholder: formatMessage$("shared.search.placeholder"),
   };
 
   return (

@@ -1,4 +1,4 @@
-import { Form, island, useI18n } from "@microeinhundert/radonis";
+import { Form, island, token$, useI18n } from "@microeinhundert/radonis";
 import type Garden from "App/Models/Garden";
 
 import Button from "../Button.island";
@@ -13,27 +13,27 @@ interface GardenFormProps {
 }
 
 function GardenForm({ garden }: GardenFormProps) {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
     name: {
-      label: formatMessage("gardens.form.name.label"),
+      label: formatMessage$("gardens.form.name.label"),
     },
     zip: {
-      label: formatMessage("gardens.form.zip.label"),
+      label: formatMessage$("gardens.form.zip.label"),
     },
     city: {
-      label: formatMessage("gardens.form.city.label"),
+      label: formatMessage$("gardens.form.city.label"),
     },
     actions: {
-      create: formatMessage("gardens.form.actions.create"),
-      update: formatMessage("gardens.form.actions.update"),
+      create: formatMessage$("gardens.form.actions.create"),
+      update: formatMessage$("gardens.form.actions.update"),
     },
   };
 
   return (
     <Form
-      action={garden ? "gardens.update" : "gardens.store"}
+      action$={garden ? token$("gardens.update") : token$("gardens.store")}
       method={garden ? "put" : "post"}
       params={garden ? { id: garden.id } : undefined}
       noValidate

@@ -1,8 +1,9 @@
 import { ExclamationCircleIcon, EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
-import { island, useFormField, useHydrated, useI18n } from "@microeinhundert/radonis";
+import { island, useHydrated, useI18n } from "@microeinhundert/radonis";
 import type { HTMLInputTypeAttribute } from "react";
 import { useState } from "react";
 
+import { useFormField } from "../hooks/useFormField";
 import { clsx } from "../utils/string";
 
 /*
@@ -18,7 +19,7 @@ interface InputProps extends HTMLProps<"input"> {
 const initiallyHiddenTypes: HTMLInputTypeAttribute[] = ["password"];
 
 function Input({ type: initialType = "text", className, ...restProps }: InputProps) {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
   const field = useFormField(restProps);
   const isHydrated = useHydrated();
 
@@ -26,8 +27,8 @@ function Input({ type: initialType = "text", className, ...restProps }: InputPro
   const [type, setType] = useState(initialType);
 
   const messages = {
-    hideValue: formatMessage("shared.input.hideValue"),
-    showValue: formatMessage("shared.input.showValue"),
+    hideValue: formatMessage$("shared.input.hideValue"),
+    showValue: formatMessage$("shared.input.showValue"),
   };
 
   return (

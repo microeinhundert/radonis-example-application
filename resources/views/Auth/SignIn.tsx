@@ -3,10 +3,10 @@ import SignInForm from "Components/Auth/SignInForm.island";
 import { AuthLayout } from "Layouts/Auth";
 
 function SignIn() {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
-    title: formatMessage("auth.signIn.title"),
+    title: formatMessage$("auth.signIn.title"),
   };
 
   return (

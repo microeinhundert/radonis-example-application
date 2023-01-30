@@ -3,10 +3,10 @@ import SignUpForm from "Components/Auth/SignUpForm.island";
 import { AuthLayout } from "Layouts/Auth";
 
 function SignUp() {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
-    title: formatMessage("auth.signUp.title"),
+    title: formatMessage$("auth.signUp.title"),
   };
 
   return (

@@ -3,10 +3,10 @@ import Header from "Components/Header.island";
 import { BaseLayout } from "Layouts/Base";
 
 function Index() {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
-    title: formatMessage("home.index.title"),
+    title: formatMessage$("home.index.title"),
   };
 
   return (

@@ -10,28 +10,28 @@ export function useNavigation() {
   return {
     primary: navigationBuilder.make([
       {
-        identifier: "home",
-        routeIdentifier: "home",
+        messageIdentifier$: "navigation.home",
+        routeIdentifier$: "home",
         icon: HomeIcon,
         canAccess: () => !user,
       },
       {
-        identifier: "dashboard",
-        routeIdentifier: "dashboard",
+        messageIdentifier$: "navigation.dashboard",
+        routeIdentifier$: "dashboard",
         icon: HomeIcon,
         canAccess: () => !!user,
       },
       {
-        identifier: "gardens",
-        routeIdentifier: "gardens.index",
+        messageIdentifier$: "navigation.gardens",
+        routeIdentifier$: "gardens.index",
         icon: CubeIcon,
         canAccess: () => !!user,
       },
     ]),
     secondary: navigationBuilder.make([
       {
-        identifier: "settings",
-        routeIdentifier: "settings",
+        messageIdentifier$: "navigation.settings",
+        routeIdentifier$: "settings",
         icon: CogIcon,
         canAccess: () => !!user,
       },

@@ -9,10 +9,10 @@ interface EditProps {
 }
 
 function Edit({ garden }: EditProps) {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
-    title: formatMessage("gardens.edit.title", { name: garden.name }),
+    title: formatMessage$("gardens.edit.title", { name: garden.name }),
   };
 
   return (

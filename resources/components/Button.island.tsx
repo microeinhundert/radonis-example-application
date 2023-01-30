@@ -48,7 +48,7 @@ function useButtonProps<Tag extends ButtonTag>(props: ButtonBaseProps<Tag>) {
 
   return {
     getProps: (defaults?: HTMLProps<Tag>) => ({
-      ...(defaults ?? {}),
+      ...defaults,
       ...propsWeDontControl,
       className: clsx(
         "flex justify-center items-center gap-2",
@@ -103,20 +103,20 @@ function AnchorButton(props: AnchorButtonProps) {
  */
 interface LinkButtonProps extends ButtonBaseProps<"a"> {
   href?: never;
-  to: string;
+  to$: string;
   params?: RouteParams;
   queryParams?: RouteQueryParams;
 }
 
-function LinkButton({ to, params, queryParams, ...restProps }: LinkButtonProps) {
+function LinkButton({ to$, params, queryParams, ...restProps }: LinkButtonProps) {
   const { getProps, disabled, children } = useButtonProps<"a">(restProps);
-  const { make } = useUrlBuilder();
+  const { make$ } = useUrlBuilder();
 
   return (
     <a
       {...getProps({
         "aria-disabled": disabled ? "true" : undefined,
-        "href": make(to, { params, queryParams }),
+        "href": make$(to$, { params, queryParams }),
       })}
     >
       <ButtonContent<"a"> {...restProps}>{children}</ButtonContent>

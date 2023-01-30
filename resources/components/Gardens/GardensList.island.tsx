@@ -24,22 +24,22 @@ interface GardensListItemProps {
 }
 
 function GardensListItem({ canEdit, garden, onDelete, onRollback }: GardensListItemProps) {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
   const hydrated = useHydrated();
   const [deleteConfirmationModalOpen, setDeleteConfirmationModalOpen] = useState(false);
 
   const messages = {
     actions: {
-      edit: formatMessage("gardens.list.actions.edit"),
-      delete: formatMessage("gardens.list.actions.delete"),
+      edit: formatMessage$("gardens.list.actions.edit"),
+      delete: formatMessage$("gardens.list.actions.delete"),
     },
     modals: {
       delete: {
-        title: formatMessage("gardens.list.modals.delete.title", { name: garden.name }),
-        description: formatMessage("gardens.list.modals.delete.description"),
+        title: formatMessage$("gardens.list.modals.delete.title", { name: garden.name }),
+        description: formatMessage$("gardens.list.modals.delete.description"),
         actions: {
-          cancel: formatMessage("gardens.list.modals.delete.actions.cancel"),
-          confirm: formatMessage("gardens.list.modals.delete.actions.confirm"),
+          cancel: formatMessage$("gardens.list.modals.delete.actions.cancel"),
+          confirm: formatMessage$("gardens.list.modals.delete.actions.confirm"),
         },
       },
     },
@@ -47,7 +47,7 @@ function GardensListItem({ canEdit, garden, onDelete, onRollback }: GardensListI
 
   return (
     <Form
-      action="gardens.destroy"
+      action$="gardens.destroy"
       hooks={{
         onMutate: () => {
           setDeleteConfirmationModalOpen(false);
@@ -73,7 +73,7 @@ function GardensListItem({ canEdit, garden, onDelete, onRollback }: GardensListI
                   icon={PencilIcon}
                   params={{ id: garden.id }}
                   title={messages.actions.edit}
-                  to="gardens.edit"
+                  to$="gardens.edit"
                   round
                   small
                 />
@@ -137,14 +137,14 @@ interface GardensListProps {
 }
 
 function GardensList({ gardens }: GardensListProps) {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
   const user = useAuthenticatedUser();
   const [gardensListItems, setGardensListItems] = useState<Garden[]>(gardens);
 
   const messages = {
     noData: {
-      headline: formatMessage("gardens.list.noData.headline"),
-      text: formatMessage("gardens.list.noData.text"),
+      headline: formatMessage$("gardens.list.noData.headline"),
+      text: formatMessage$("gardens.list.noData.text"),
     },
   };
 

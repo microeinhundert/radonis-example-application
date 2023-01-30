@@ -89,10 +89,10 @@ interface ModalContentProps {
 }
 
 function ModalContent({ children, actions, wide, onClose }: ModalContentProps) {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
-    close: formatMessage("shared.modal.close"),
+    close: formatMessage$("shared.modal.close"),
   };
 
   const transition = {

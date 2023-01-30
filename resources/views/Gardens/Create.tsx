@@ -4,10 +4,10 @@ import Header from "Components/Header.island";
 import { BaseLayout } from "Layouts/Base";
 
 function Create() {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
-    title: formatMessage("gardens.create.title"),
+    title: formatMessage$("gardens.create.title"),
   };
 
   return (

@@ -9,33 +9,33 @@ import Link from "../Link";
  * Sign Up Form
  */
 function SignUpForm() {
-  const { formatMessage } = useI18n();
-  const { make } = useUrlBuilder();
+  const { formatMessage$ } = useI18n();
+  const { make$ } = useUrlBuilder();
 
   const messages = {
     firstName: {
-      label: formatMessage("auth.signUp.form.firstName.label"),
+      label: formatMessage$("auth.signUp.form.firstName.label"),
     },
     lastName: {
-      label: formatMessage("auth.signUp.form.lastName.label"),
+      label: formatMessage$("auth.signUp.form.lastName.label"),
     },
     email: {
-      label: formatMessage("auth.signUp.form.email.label"),
+      label: formatMessage$("auth.signUp.form.email.label"),
     },
     password: {
-      label: formatMessage("auth.signUp.form.password.label"),
+      label: formatMessage$("auth.signUp.form.password.label"),
     },
     passwordConfirmation: {
-      label: formatMessage("auth.signUp.form.passwordConfirmation.label"),
+      label: formatMessage$("auth.signUp.form.passwordConfirmation.label"),
     },
     actions: {
-      submit: formatMessage("auth.signUp.form.actions.submit"),
+      submit: formatMessage$("auth.signUp.form.actions.submit"),
     },
-    signInLinkLabel: formatMessage("auth.signUp.form.signInLinkLabel"),
+    signInLinkLabel: formatMessage$("auth.signUp.form.signInLinkLabel"),
   };
 
   return (
-    <Form action="signUp" method="post" noValidate>
+    <Form action$="signUp" method="post" noValidate>
       <div className="flex flex-col gap-5">
         <CsrfField />
         <Input
@@ -80,7 +80,7 @@ function SignUpForm() {
           {messages.actions.submit}
         </Button>
         <div className="text-center text-sm">
-          <Link href={make("signIn")}>{messages.signInLinkLabel}</Link>
+          <Link href={make$("signIn")}>{messages.signInLinkLabel}</Link>
         </div>
       </div>
     </Form>

@@ -7,11 +7,11 @@ interface InternalServerErrorProps {
 }
 
 function InternalServerError({ error }: InternalServerErrorProps) {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
-    headline: formatMessage("errors.internalServerError.headline"),
-    text: formatMessage("errors.internalServerError.text", {
+    headline: formatMessage$("errors.internalServerError.headline"),
+    text: formatMessage$("errors.internalServerError.text", {
       message: error instanceof Error ? error.message : "-",
     }),
   };

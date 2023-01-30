@@ -11,12 +11,12 @@ interface IndexProps {
 }
 
 function Index({ gardens }: IndexProps) {
-  const { formatMessage } = useI18n();
+  const { formatMessage$ } = useI18n();
 
   const messages = {
-    title: formatMessage("gardens.index.title"),
+    title: formatMessage$("gardens.index.title"),
     actions: {
-      create: formatMessage("gardens.index.actions.create"),
+      create: formatMessage$("gardens.index.actions.create"),
     },
   };
 
@@ -25,7 +25,7 @@ function Index({ gardens }: IndexProps) {
       <Header
         actions={
           <>
-            <Button.Link color={ButtonColor.Emerald} icon={PlusIcon} to="gardens.create">
+            <Button.Link color={ButtonColor.Emerald} icon={PlusIcon} to$="gardens.create">
               {messages.actions.create}
             </Button.Link>
           </>
