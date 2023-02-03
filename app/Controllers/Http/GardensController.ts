@@ -5,7 +5,7 @@ import { Create, Edit, Index, Show } from "Views/Gardens";
 
 export default class GardensController {
   /*
-   * index action (view)
+   * index action
    */
   public async index({ bouncer, radonis, auth, i18n }: HttpContextContract) {
     await bouncer.with("GardenPolicy").authorize("list");
@@ -18,7 +18,7 @@ export default class GardensController {
   }
 
   /*
-   * create action (view)
+   * create action
    */
   public async create({ bouncer, radonis, i18n }: HttpContextContract) {
     await bouncer.with("GardenPolicy").authorize("create");
@@ -27,7 +27,7 @@ export default class GardensController {
   }
 
   /*
-   * show action (view)
+   * show action
    */
   public async show({ bouncer, radonis, params, i18n }: HttpContextContract) {
     const garden = await Garden.findOrFail(params.id);
@@ -40,7 +40,7 @@ export default class GardensController {
   }
 
   /*
-   * edit action (view)
+   * edit action
    */
   public async edit({ bouncer, radonis, params, i18n }: HttpContextContract) {
     const garden = await Garden.findOrFail(params.id);
@@ -53,7 +53,7 @@ export default class GardensController {
   }
 
   /*
-   * store action (api)
+   * store action
    */
   public async store({ bouncer, request, response, auth }: HttpContextContract) {
     await bouncer.with("GardenPolicy").authorize("create");
@@ -73,7 +73,7 @@ export default class GardensController {
   }
 
   /*
-   * update action (api)
+   * update action
    */
   public async update({ bouncer, request, params, response }: HttpContextContract) {
     const garden = await Garden.findOrFail(params.id);
@@ -92,7 +92,7 @@ export default class GardensController {
   }
 
   /*
-   * destroy action (api)
+   * destroy action
    */
   public async destroy({ bouncer, request, params, response }: HttpContextContract) {
     const garden = await Garden.findOrFail(params.id);

@@ -1,4 +1,4 @@
-import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
+import ArrowLeftOnRectangleIcon from "@heroicons/react/24/outline/ArrowLeftOnRectangleIcon";
 import { island, useI18n } from "@microeinhundert/radonis";
 import { useState } from "react";
 

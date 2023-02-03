@@ -1,4 +1,6 @@
-import { ExclamationCircleIcon, EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import ExclamationCircleIcon from "@heroicons/react/24/outline/ExclamationCircleIcon";
+import EyeIcon from "@heroicons/react/24/outline/EyeIcon";
+import EyeSlashIcon from "@heroicons/react/24/outline/EyeSlashIcon";
 import { island, useHydrated, useI18n } from "@microeinhundert/radonis";
 import type { HTMLInputTypeAttribute } from "react";
 import { useState } from "react";

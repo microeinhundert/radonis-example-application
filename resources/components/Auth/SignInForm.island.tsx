@@ -1,4 +1,4 @@
-import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
+import ExclamationCircleIcon from "@heroicons/react/24/outline/ExclamationCircleIcon";
 import { Form, island, useFlashMessages, useI18n, useUrlBuilder } from "@microeinhundert/radonis";
 
 import Button from "../Button.island";

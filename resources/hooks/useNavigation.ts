@@ -1,4 +1,6 @@
-import { CogIcon, CubeIcon, HomeIcon } from "@heroicons/react/24/outline";
+import CogIcon from "@heroicons/react/24/outline/CogIcon";
+import CubeIcon from "@heroicons/react/24/outline/CubeIcon";
+import HomeIcon from "@heroicons/react/24/outline/HomeIcon";
 
 import { useAuthenticatedUser } from "./useAuthenticatedUser";
 import { useNavigationBuilder } from "./useNavigationBuilder";

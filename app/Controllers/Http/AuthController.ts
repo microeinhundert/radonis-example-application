@@ -6,21 +6,21 @@ import { SignIn, SignUp } from "Views/Auth";
 
 export default class AuthController {
   /*
-   * signUpShow action (view)
+   * signUpShow action
    */
   public signUpShow({ radonis, i18n }: HttpContextContract) {
     return radonis.withHeadTitle(i18n.formatMessage("auth.signUp.title")).render(SignUp);
   }
 
   /*
-   * signInShow action (view)
+   * signInShow action
    */
   public signInShow({ radonis, i18n }: HttpContextContract) {
     return radonis.withHeadTitle(i18n.formatMessage("auth.signIn.title")).render(SignIn);
   }
 
   /*
-   * signUp action (api)
+   * signUp action
    */
   public async signUp({ response, request, auth }: HttpContextContract) {
     const data = await request.validate(SignUpValidator);
@@ -37,7 +37,7 @@ export default class AuthController {
   }
 
   /*
-   * signIn action (api)
+   * signIn action
    */
   public async signIn({ response, request, auth, session, i18n }: HttpContextContract) {
     const { email, password, rememberMe } = await request.validate(SignInValidator);
@@ -67,7 +67,7 @@ export default class AuthController {
   }
 
   /*
-   * signOut action (api)
+   * signOut action
    */
   public async signOut({ response, request, auth }: HttpContextContract) {
     await auth.logout();

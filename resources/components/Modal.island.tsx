@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import { island, useI18n } from "@microeinhundert/radonis";
 import type { ReactNode } from "react";
 import { Fragment } from "react";

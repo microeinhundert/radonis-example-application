@@ -1,5 +1,6 @@
-import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
+import ExclamationCircleIcon from "@heroicons/react/24/outline/ExclamationCircleIcon";
+import PencilIcon from "@heroicons/react/24/solid/PencilIcon";
+import TrashIcon from "@heroicons/react/24/solid/TrashIcon";
 import { Form, island, useHydrated, useI18n } from "@microeinhundert/radonis";
 import type Garden from "App/Models/Garden";
 import { useState } from "react";

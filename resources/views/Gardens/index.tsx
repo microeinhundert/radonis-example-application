@@ -1,4 +1,4 @@
-import { PlusIcon } from "@heroicons/react/24/solid";
+import PlusIcon from "@heroicons/react/24/solid/PlusIcon";
 import { HydrationRoot, useI18n } from "@microeinhundert/radonis";
 import type Garden from "App/Models/Garden";
 import Button, { ButtonColor } from "Components/Button.island";
